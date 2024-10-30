@@ -274,7 +274,7 @@ details > ul {
   font-weight: bold;
 }
 
-/* CSS Scill bar transition */
+/* CSS Skill bar transition */
 
 [data-in-view-port] {
   height: 100%;
@@ -341,10 +341,12 @@ hr {
   height: 60px;
   margin: 5px;
   object-fit: cover;
+  filter: grayscale(80%);
 }
 
 .my-zoom:hover {
   transform: scale(
-    1.5
+    1.2
   ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  filter: grayscale(0%);
 }
