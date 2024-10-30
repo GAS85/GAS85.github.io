@@ -1,0 +1,348 @@
+:root {
+  counter-reset: headings;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Add light-mode styles */
+body.light-mode {
+  color: #3366ccff !important;
+  background-color: #fff !important;
+}
+
+/* Adjust other element colors for dark mode */
+.w3-bar,
+.w3-sidebar,
+.w3-content,
+.w3-card,
+.w3-button {
+  transition: background-color 0.5s, color 0.5s;
+  /* Smooth transition */
+}
+
+body.light-mode .w3-bar,
+body.light-mode .w3-sidebar,
+body.light-mode .w3-card {
+  background-color: #dbe5f1ff !important;
+  color: #fff !important;
+}
+
+body.light-mode .w3-text-light-grey,
+body.light-mode .w3-text-grey {
+  color: #000 !important;
+}
+
+body.light-mode .w3-text-white,
+body.light-mode .w3-hover-text-green:hover {
+  color: #3366ccff !important;
+}
+
+body.light-mode .w3-light-grey,
+body.light-mode .w3-white {
+  color: #000 !important;
+  background-color: #dbe5f1ff !important;
+}
+
+body.light-mode .w3-dark-grey {
+  color: #dbe5f1ff !important;
+  background-color: #3366ccff !important;
+}
+
+body.light-mode .w3-button {
+  background-color: #dbe5f1ff !important;
+  color: #3366ccff !important;
+}
+
+body.light-mode .w3-hover-black:hover {
+  color: #fff !important;
+  background-color: #3366ccff !important;
+}
+
+body.light-mode summary {
+  color: #fff !important;
+  background-color: rgba(51, 102, 204, 0.75) !important;
+}
+
+body.light-mode details {
+  background: rgb(51, 102, 204, 0.05);
+}
+
+body.light-mode .w3-input {
+  border-bottom: 2px solid #3366ccff;
+}
+
+body.light-mode #background {
+  color: rgba(51, 102, 204, 0.15);
+}
+
+/* End Light mode */
+
+.w3-row-padding img {
+  margin-bottom: 12px;
+}
+
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {
+  width: 120px;
+  background: #222;
+}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {
+  margin-left: 120px;
+}
+
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {
+  #main {
+    margin-left: 0;
+  }
+}
+
+/* Add Grayscale attrubte with a white background */
+.grayscale-white {
+  filter: grayscale(100%);
+  background-color: white;
+}
+
+/* Add Grayscale attrubte keeping background */
+.grayscale-transparent {
+  filter: grayscale(100%);
+}
+
+/* Remove Grayscale */
+.color {
+  filter: grayscale(0%);
+  border-radius: 8px;
+}
+
+/* Make nice grid */
+/*.image-grid {
+      columns: 300px;
+    }*/
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Adjust the minimum size */
+  gap: 10px;
+  /* Space between images */
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* Ensure images fill their grid area */
+  border-radius: 8px;
+  /* Optional: Keep the rounded corners from the original design */
+}
+
+/* Make details dropdown nice */
+details {
+  width: 100%;
+  margin: 0 auto;
+  background: rgb(5, 5, 5, 0.1);
+  /* Add Glass effect */
+  backdrop-filter: blur(10px);
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0.1rem 1rem -0.5rem rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+summary {
+  padding: 1rem;
+  display: block;
+  /* background: #222; */
+  background: rgb(22, 22, 22, 0.75);
+  padding-left: 2.2rem;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+summary:before {
+  content: "";
+  border-width: 0.4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+  transform: rotate(0);
+  transform-origin: 0.2rem 50%;
+  transition: 0.25s transform ease;
+}
+
+/* THE MAGIC ðŸ§™â€â™€ï¸ */
+details[open] > summary:before {
+  transform: rotate(90deg);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details > ul {
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+/* Background text format */
+#container {
+  position: relative;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  text-align: center;
+  font-size: clamp(500px, 80vw, 800px);
+  padding: 20px;
+  color: rgba(198, 217, 241, 0.05);
+  white-space: nowrap;
+  /* Prevent line breaks */
+  filter: blur(5px);
+}
+
+#background img {
+  position: absolute;
+  /* Position the SVG absolutely within the div */
+  top: 25%;
+  /* Align to the top */
+  right: -10%;
+  /* Align to the right */
+  width: 40%;
+  /* Ensure it covers the full width */
+  height: auto;
+  /* Maintain aspect ratio */
+  max-height: 100%;
+  /* Prevent overflowing vertically */
+  max-width: 100%;
+  /* Prevent overflowing vertically */
+  z-index: -1;
+  /* Set z-index lower than the text */
+  filter: opacity(0.05) blur(5px);
+}
+
+#background span {
+  position: relative;
+  /* Position the text relatively */
+  z-index: 1;
+  /* Set z-index higher than the SVG */
+}
+
+/* Add Progress Bar */
+
+.progress-container {
+  width: 100%;
+  /* background-color: #f3f3f300; */
+  /* border-radius: 5px; */
+  overflow: hidden;
+  position: relative;
+  /* position: absolute; /* Allows it to extend beyond 100% */
+}
+
+.progress-bar {
+  height: 28px;
+  /* background-color: #3366CCFF; */
+  /* border-radius: 4px; */
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+
+.progress-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+/* CSS Scill bar transition */
+
+[data-in-view-port] {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+  /* background-color: #3366ccff; */
+  border-radius: 4px;
+  /* padding-right: 0px; */
+}
+
+[data-in-view-port="bar-fill"] {
+  transition: 1s;
+  transform: scaleX(0);
+  transform-origin: 0;
+}
+[data-in-view-port="bar-fill"].is-inViewport {
+  transform: scaleX(1);
+  /* color:#ffffff; */
+}
+
+.skill_bar {
+  margin: 0px;
+  height: 28px;
+  /* background-color: #333; */
+}
+
+/* Add HR gradient */
+hr {
+  border: none;
+  /* Remove the default border */
+  height: 5px;
+  /* Set height of the hr */
+  /* background: linear-gradient(to right, #dbe5f1ff, #3366ccff, #dbe5f1ff); */
+  background: linear-gradient(
+    to right,
+    rgba(219, 229, 241, 0),
+    #3366ccff,
+    rgba(219, 229, 241, 0)
+  );
+  margin: 20px 0;
+  /* Add some margin for spacing */
+}
+
+/* Add Blinking effect */
+.my-blink {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Add zoom effect to pictures */
+.my-zoom {
+  transition: transform 0.2s; /* Animation */
+}
+
+.my-image {
+  width: 60px;
+  margin: 5px;
+}
+
+.my-zoom:hover {
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
