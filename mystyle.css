@@ -107,13 +107,18 @@ body.light-mode #background {
   }
 }
 
-/* Add Grayscale attrubte with a white background */
+/* Add Grayscale attribute with a white background */
+.white-background {
+  background-color: white;
+}
+
+/* Add Grayscale attribute with a white background */
 .grayscale-white {
   filter: grayscale(100%);
   background-color: white;
 }
 
-/* Add Grayscale attrubte keeping background */
+/* Add Grayscale attribute keeping background */
 .grayscale-transparent {
   filter: grayscale(100%);
 }
